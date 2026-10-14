@@ -19,6 +19,8 @@ self.addEventListener('activate', event => {
 self.addEventListener('fetch', event => {
   const request = event.request;
   if (request.method !== 'GET' || new URL(request.url).origin !== self.location.origin) return;
+  // Keep isolated UX previews out of the production offline cache.
+  if (new URL(request.url).pathname.includes('/preview/')) return;
 
   if (request.mode === 'navigate') {
     event.respondWith(
