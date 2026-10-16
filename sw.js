@@ -1,4 +1,4 @@
-const CACHE = 'mealist-v022';
+const CACHE = 'mealist-v023';
 const FILES = ['./', './index.html', './manifest.webmanifest', './icon.svg'];
 
 self.addEventListener('install', event => {
